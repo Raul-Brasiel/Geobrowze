@@ -1,0 +1,72 @@
+#principal{
+	width: 960px;
+	height: 540px;
+	background-color: #174E96;
+	margin: auto;
+	margin-top: 5%;
+	border-radius: 10px;
+}
+
+.ponto{
+	margin: 7px 0px;
+	height: 60px;
+}
+
+.geobrowze{
+	display: inline-flex;
+	height: 100px;
+}
+.geobrowze1{
+	color: #FFBD59;
+	font-size: 450%;
+	font-family: horta;
+	text-shadow: 2px 2px 1px rgb(0, 85, 255, 1);
+	margin: 10px 0px;
+}
+.geobrowze2{
+	color: #59ffff;
+	font-size: 450%;
+	font-family: horta;
+	text-shadow: 2px 2px 1px rgb(0, 85, 255, 1);
+	margin: 10px 0px;
+}
+
+#divs{
+	display: flex;
+}
+
+#quiz{
+	background-color: antiquewhite;
+	width: 450px;
+	height: 350px;
+	margin-left: 70px;
+}
+
+#quiz button {
+	width: 80%;
+	padding: 10px;
+	margin-top: 15px;
+	background-color: #45f0f3;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#quiz button:hover{
+	background-color: #88fcfe;
+}
+
+#continente{
+	padding: 100px 0 0 100px;
+}
+
+#personagem{
+	padding: 180px 0 0 30px;
+}
+
+.opcao-certa {
+	background-color: green;
+  }
+
+.opcao-errada {
+	background-color: red;
+}

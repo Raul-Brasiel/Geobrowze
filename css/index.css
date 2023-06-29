@@ -1,0 +1,90 @@
+#principal{
+	width: 960px;
+	height: 540px;
+	background-color: #174E96;
+	margin: auto;
+	margin-top: 5%;
+	border-radius: 10px;
+	font-family: horta;
+}
+
+.terra {
+	width: 200px;
+	height: 200px;
+	animation: animation 5s linear infinite;
+}
+
+.div-terra{
+	margin: auto;
+	width: 200px;
+	height: 200px;
+}
+
+.ponto{
+	margin: 10px 0px;
+	height: 55px;
+}
+.geobrowze{
+	display: inline-flex;
+	height: 100px;
+	width: 320px;
+}
+.geobrowze1{
+	color: #28FF0D;
+	font-size: 450%;
+	font-family: horta;
+	text-shadow: 2px 2px 1px rgb(0, 85, 255, 1);
+	margin: 10px 0px;
+}
+.geobrowze2{
+	color: #FFBD59;
+	font-size: 450%;
+	font-family: horta;
+	text-shadow: 2px 2px 1px rgb(0, 85, 255, 1);
+	margin: 10px 0px;
+}
+#div-jogar{
+	max-width: 400px;
+	max-height: 81px;
+	margin: auto;
+}
+.button-jogar{
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	margin: 60px 0px;
+}
+
+.button-jogar:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+#ilha{
+	max-width: 130px;
+	max-height: 130px;
+	position: absolute;
+	margin: 0 0 0 240px;
+	top: 300px;
+}
+#barco{
+	max-width: 200px;
+	max-height: 200px;
+	position: absolute;
+	margin: 0 0 0 120px;
+	top: 350px;
+}
+
+@keyframes animation {
+	0% {
+		margin-top: 0px;
+	}
+
+	50% {
+		margin-top: 40px;
+	}
+    100% {
+        margin-top: 0px;
+    }
+}

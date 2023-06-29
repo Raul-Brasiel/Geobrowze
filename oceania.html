@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Geobrowse</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="icon" href="imagens/Geobrowze.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="js/game.js"></script>
+</head>
+
+<body>
+    <div id="principal">
+        <div id="menu">
+            <div class="menu-botao">
+                <a href="index.html" class="botao-home">
+                    <img src="imagens/Geobrowze.png" alt="" id="terra-menu">
+                    <div>
+                        <h1 id="geobrowze1-menu" >GEO</h1><h1 id="geobrowze2-menu">BROWZE</h1>
+                    </div>
+                </a>
+            </div>
+           
+            <div id="div-audio">
+                <button>  <!-- Diminuir ou aumentar volume dos sons -->
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button> <!-- Diminuir ou aumentar volume da música -->
+                    <i class="fa-solid fa-music"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="geobrowze">
+            <img src="imagens/ponto.png" alt="" class="ponto">
+            <h1 class="geobrowze1">OCEA</h1> 
+            <h1 class="geobrowze2">NIA</h1>
+        </div>
+
+        <div id="divs">
+            <div id="continente">
+                <img src="imagens/ilha.png" alt="" width="100px" height="100px">
+            </div>
+    
+            <div id="quiz">
+                <h2 id="pergunta"></h2>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+            </div>
+    
+            <div id="personagem">
+                <img src="imagens/personagem.png" alt="" width="200px" height="200px">
+            </div>
+        </div>
+    </div>
+
+    <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
+
+    <script src="js/game.js">
+        const questions = [
+        {
+            question: "Qual a capital da Austrália?",
+            answer: "Canberra",
+            options: [
+            "Sydney",
+            "Melbourne",
+            "Brisbane",
+            "Canberra"
+            ]
+        },
+        {
+            question: "Qual é o nome do deserto localizado no centro da Austrália?",
+            answer: "Aconcágua",
+            options: [
+            "Deserto de Gobi",
+            "Deserto do Atacama",
+            "Deserto do Saara",
+            "Deserto de Simpson"
+            ]
+        },
+        {
+            question: "Austrália e Nova Zelândia são reinados pelo rei de qual país?",
+            answer: "Reino Unidos",
+            options: [
+            "Espanha",
+            "Reino Unido",
+            "Irlanda",
+            "Dinamarca"
+            ]
+        },
+        {
+            question: "Qual é o nome da famosa cidade australiana conhecida por sua arquitetura moderna?",
+            answer: "Sydney",
+            options: [
+            "Melbourne",
+            "Brisbane",
+            "Sydney",
+            "Perth"
+            ]
+        },
+        {
+            question: "Qual é o nome do famoso vulcão ativo localizado na Ilha Norte da Nova Zelândia?",
+            answer: "Monte Ruapehu",
+            options: [
+            "Monte Fuji",
+            "Monte Cook",
+            "Monte Kilimanjaro",
+            "Monte Ruapehu"
+            ]
+        },
+        {
+            question: "Qual é o país insular da Oceania que é famoso por suas praias paradisíacas e cultura do surfe?",
+            answer: "Fiji",
+            options: [
+            "Fiji",
+            "Samoa",
+            "Vanuatu",
+            "Maldivas"
+            ]
+        },
+        {
+            question: "Qual é o maior país da Oceania em área territorial?",
+            answer: "Austrália",
+            options: [
+            "Nova Zelândia",
+            "Papua-Nova Guiné",
+            "Indonésia",
+            "Austrália"
+            ]
+        },
+        {
+            question: "Qual a capital da Nova Zelândia?",
+            answer: "Wellington",
+            options: [
+            "Auckland",
+            "Wellington",
+            "Queenstown",
+            "Christchurch"
+            ]
+        },
+        ];
+    </script>
+</body>
+</html>

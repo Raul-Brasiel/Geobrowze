@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Geobrowse</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="icon" href="imagens/Geobrowze.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="js/game.js"></script>
+</head>
+
+<body>
+    <div id="principal">
+        <div id="menu">
+            <div class="menu-botao">
+                <a href="index.html" class="botao-home">
+                    <img src="imagens/Geobrowze.png" alt="" id="terra-menu">
+                    <div>
+                        <h1 id="geobrowze1-menu" >GEO</h1><h1 id="geobrowze2-menu">BROWZE</h1>
+                    </div>
+                </a>
+            </div>
+           
+            <div id="div-audio">
+                <button>  <!-- Diminuir ou aumentar volume dos sons -->
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button> <!-- Diminuir ou aumentar volume da música -->
+                    <i class="fa-solid fa-music"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="geobrowze">
+            <img src="imagens/ponto.png" alt="" class="ponto">
+            <h1 class="geobrowze1">AMÉRICA</h1> 
+            <h1 class="geobrowze2" style="padding-left: 15px;">DO SUL</h1>
+        </div>
+
+        <div id="divs">
+            <div id="continente">
+                <img src="imagens/ilha.png" alt="" width="100px" height="100px">
+            </div>
+    
+            <div id="quiz">
+                <h2 id="pergunta"></h2>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+            </div>
+    
+            <div id="personagem">
+                <img src="imagens/personagem.png" alt="" width="200px" height="200px">
+            </div>
+        </div>
+    </div>
+
+    <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
+
+    <script src="js/game.js">
+        const questions = [
+        {
+            question: "Qual é a capital da Argentina?",
+            answer: "Buenos Aires",
+            options: [
+            "Buenos Aires",
+            "Santiago",
+            "Lima",
+            "Montevidéu"
+            ]
+        },
+        {
+            question: "Qual é o ponto mais alto da América do Sul?",
+            answer: "Aconcágua",
+            options: [
+            "Aconcágua",
+            "Monte Roraima",
+            "Nevado Sajama",
+            "Huascarán"
+            ]
+        },
+        {
+            question: "Qual é o país da América do Sul que possui as famosas Linhas de Nazca?",
+            answer: "Peru",
+            options: [
+            "Bolívia",
+            "Chile",
+            "Equador",
+            "Peru"
+            ]
+        },
+        {
+            question: "Qual é o maior rio da América do Sul?",
+            answer: "Rio Amazonas",
+            options: [
+            "Rio Amazonas",
+            "Rio Orinoco",
+            "Rio São Francisco",
+            "Rio Paraná"
+            ]
+        },
+        {
+            question: "Qual é o país da América do Sul que possui as Ilhas Galápagos?",
+            answer: "Equador",
+            options: [
+            "Colômbia",
+            "Uruguai",
+            "Equador",
+            "Chile"
+            ]
+        },
+        {
+            question: "Qual é o país da América do Sul que possui a cidade de Machu Picchu, uma antiga cidade inca?",
+            answer: "Peru",
+            options: [
+            "Equador",
+            "Peru",
+            "Colômbia",
+            "Chile"
+            ]
+        },
+        {
+            question: "Qual é a capital do Uruguai?",
+            answer: "Inglês e Francês",
+            options: [
+            "Assunção",
+            "Buenos Aires",
+            "La Paz",
+            "Montevidéu"
+            ]
+        },
+        {
+            question: "Qual país não faz fronteira com o Brasil?",
+            answer: "Chile",
+            options: [
+            "Uruguai",
+            "Argentina",
+            "Chile",
+            "Peru"
+            ]
+        },
+        ];
+    </script>
+</body>
+</html>

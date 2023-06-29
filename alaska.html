@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Geobrowse</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="icon" href="imagens/Geobrowze.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="js/game.js"></script>
+</head>
+
+<body>
+    <div id="principal">
+        <div id="menu">
+            <div class="menu-botao">
+                <a href="index.html" class="botao-home">
+                    <img src="imagens/Geobrowze.png" alt="" id="terra-menu">
+                    <div>
+                        <h1 id="geobrowze1-menu" >GEO</h1><h1 id="geobrowze2-menu">BROWZE</h1>
+                    </div>
+                </a>
+            </div>
+           
+            <div id="div-audio">
+                <button>  <!-- Diminuir ou aumentar volume dos sons -->
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <button> <!-- Diminuir ou aumentar volume da música -->
+                    <i class="fa-solid fa-music"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="geobrowze">
+            <img src="imagens/ponto.png" alt="" class="ponto">
+            <h1 class="geobrowze1">ALA</h1> 
+            <h1 class="geobrowze2">SCA</h1>
+        </div>
+
+        <div id="divs">
+            <div id="continente">
+                <img src="imagens/ilha.png" alt="" width="100px" height="100px">
+            </div>
+    
+            <div id="quiz">
+                <h2 id="pergunta"></h2>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+                <button class="opcoes" onclick="verificarResposta()"></button>
+            </div>
+    
+            <div id="personagem">
+                <img src="imagens/personagem.png" alt="" width="200px" height="200px">
+            </div>
+        </div>
+    </div>
+
+    <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
+
+    <script>
+    var indicePergunta = 0;
+    var perguntas = perguntasAlaska;
+
+    function exibirPergunta() {
+      var perguntaAtual = perguntas[indicePergunta];
+
+      // Exibir a pergunta
+      var perguntaElemento = document.getElementById("pergunta");
+      perguntaElemento.textContent = perguntaAtual.pergunta;
+
+      // Exibir as opções de resposta
+      var opcoesElementos = document.getElementsByClassName("opcoes");
+
+      for (var i = 0; i < opcoesElementos.length; i++) {
+        var opcaoElemento = opcoesElementos[i];
+        opcaoElemento.textContent = perguntaAtual.opcoes[i];
+        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+      }
+    }
+
+    function verificarResposta() {
+        var opcaoSelecionada = this.textContent;
+        var respostaSelecionada = perguntas[indicePergunta].opcoes.indexOf(opcaoSelecionada);
+        var respostaCorreta = perguntas[indicePergunta].resposta;
+
+        if (respostaSelecionada === respostaCorreta) {
+            // Resposta correta
+            this.classList.add("opcao-certa");
+        } else {
+            // Resposta incorreta
+            this.classList.add("opcao-errada");
+        }
+
+        // Desabilitar todos os botões após a seleção
+        var botoes = document.getElementsByClassName("opcoes");
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+        }
+
+        // Referenciar this para ser acessível dentro do setTimeout
+        var that = this;
+
+        // Ir para a próxima pergunta após um pequeno atraso
+        setTimeout(function() {
+            // Habilitar os botões para a próxima pergunta
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].disabled = false;
+            }
+
+            // Ir para a próxima pergunta
+            indicePergunta++;
+
+            if (indicePergunta < perguntas.length) {
+                exibirPergunta();
+            } else {
+            // Fim do quiz
+                alert("Fim do quiz!");
+            }
+        },); // Aguarda 1 segundo antes de passar para a próxima pergunta
+    }
+
+    exibirPergunta();
+  </script>
+</body>
+</html>
