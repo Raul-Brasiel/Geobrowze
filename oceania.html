@@ -59,89 +59,58 @@
 
     <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
 
-    <script src="js/game.js">
-        const questions = [
-        {
-            question: "Qual a capital da Austrália?",
-            answer: "Canberra",
-            options: [
-            "Sydney",
-            "Melbourne",
-            "Brisbane",
-            "Canberra"
-            ]
-        },
-        {
-            question: "Qual é o nome do deserto localizado no centro da Austrália?",
-            answer: "Aconcágua",
-            options: [
-            "Deserto de Gobi",
-            "Deserto do Atacama",
-            "Deserto do Saara",
-            "Deserto de Simpson"
-            ]
-        },
-        {
-            question: "Austrália e Nova Zelândia são reinados pelo rei de qual país?",
-            answer: "Reino Unidos",
-            options: [
-            "Espanha",
-            "Reino Unido",
-            "Irlanda",
-            "Dinamarca"
-            ]
-        },
-        {
-            question: "Qual é o nome da famosa cidade australiana conhecida por sua arquitetura moderna?",
-            answer: "Sydney",
-            options: [
-            "Melbourne",
-            "Brisbane",
-            "Sydney",
-            "Perth"
-            ]
-        },
-        {
-            question: "Qual é o nome do famoso vulcão ativo localizado na Ilha Norte da Nova Zelândia?",
-            answer: "Monte Ruapehu",
-            options: [
-            "Monte Fuji",
-            "Monte Cook",
-            "Monte Kilimanjaro",
-            "Monte Ruapehu"
-            ]
-        },
-        {
-            question: "Qual é o país insular da Oceania que é famoso por suas praias paradisíacas e cultura do surfe?",
-            answer: "Fiji",
-            options: [
-            "Fiji",
-            "Samoa",
-            "Vanuatu",
-            "Maldivas"
-            ]
-        },
-        {
-            question: "Qual é o maior país da Oceania em área territorial?",
-            answer: "Austrália",
-            options: [
-            "Nova Zelândia",
-            "Papua-Nova Guiné",
-            "Indonésia",
-            "Austrália"
-            ]
-        },
-        {
-            question: "Qual a capital da Nova Zelândia?",
-            answer: "Wellington",
-            options: [
-            "Auckland",
-            "Wellington",
-            "Queenstown",
-            "Christchurch"
-            ]
-        },
-        ];
+    <script>
+        var indicePergunta = 0;
+        var perguntas = perguntasOceania;
+    
+        function exibirPergunta() {
+        var perguntaAtual = perguntas[indicePergunta];
+      
+
+      // Exibir a pergunta
+      var perguntaElemento = document.getElementById("pergunta");
+      perguntaElemento.textContent = perguntaAtual.pergunta;
+
+      // Exibir as opções de resposta
+      var opcoesElementos = document.getElementsByClassName("opcoes");
+
+      for (var i = 0; i < perguntaAtual.opcoes.length; i++) {
+        var opcaoElemento = opcoesElementos[i];
+        opcaoElemento.textContent = perguntaAtual.opcoes[i];
+        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+      }
+    }
+
+    function verificarResposta() {
+        var opcaoSelecionada = this.textContent;
+        var respostaSelecionada = perguntas[indicePergunta].opcoes.indexOf(opcaoSelecionada);
+        var respostaCorreta = perguntas[indicePergunta].resposta;
+
+        // Desabilitar todos os botões após a seleção
+        var botoes = document.getElementsByClassName("opcoes");
+
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+        }
+
+        // Ir para a próxima pergunta após um pequeno atraso
+        setTimeout(function() {
+            indicePergunta++;
+            // Habilitar os botões para a próxima pergunta
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].disabled = false;
+            }
+
+            if (indicePergunta < perguntas.length) {
+                exibirPergunta();
+            } else {
+            // Fim do quiz
+                alert("Fim do quiz!");
+            }
+        },1000); // Aguarda 1 segundo antes de passar para a próxima pergunta
+    }
+    
+        exibirPergunta();
     </script>
 </body>
 </html>

@@ -59,59 +59,58 @@
 
     <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
 
-    <script src="js/game.js">
-        const questions = [
-        {
-            question: "Qual é o país europeu famoso por seus fiordes, vikings e aurora boreal?",
-            answer: "Noruega",
-            options: [
-            "Noruega",
-            "Suécia",
-            "Finlândia",
-            "Dinamarca"
-            ]
-        },
-        {
-            question: "Qual é a capital da Suécia?",
-            answer: "Estocolmo",
-            options: [
-            "Estocolmo",
-            "Oslo",
-            "Copenhague",
-            "Helsinque"
-            ]
-        },
-        {
-            question: "Qual é o nome do sistema de bem-estar social característico dos países escandinavos?",
-            answer: "Modelo Nórdico",
-            options: [
-            "Nordicismo",
-            "Welfare State",
-            "Socialismo Escandinavo",
-            "Modelo Nórdico"
-            ]
-        },
-        {
-            question: "Qual é o nome do idioma falado na Islândia?",
-            answer: "Islandês",
-            options: [
-            "Islandês",
-            "Norueguês",
-            "Sueco",
-            "Dinamarquês"
-            ]
-        },
-        {
-            question: "Qual país não faz parte da união europeia?",
-            answer: "Noruega",
-            options: [
-            "Finlândia",
-            "Dinamarca",
-            "Suécia",
-            "Noruega"
-            ]
-        },
-        ];
-    </script>
+    <script>
+        var indicePergunta = 0;
+        var perguntas = perguntasEscandinavia;
+    
+        function exibirPergunta() {
+        var perguntaAtual = perguntas[indicePergunta];
+      
+
+      // Exibir a pergunta
+      var perguntaElemento = document.getElementById("pergunta");
+      perguntaElemento.textContent = perguntaAtual.pergunta;
+
+      // Exibir as opções de resposta
+      var opcoesElementos = document.getElementsByClassName("opcoes");
+
+      for (var i = 0; i < perguntaAtual.opcoes.length; i++) {
+        var opcaoElemento = opcoesElementos[i];
+        opcaoElemento.textContent = perguntaAtual.opcoes[i];
+        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+      }
+    }
+
+    function verificarResposta() {
+        var opcaoSelecionada = this.textContent;
+        var respostaSelecionada = perguntas[indicePergunta].opcoes.indexOf(opcaoSelecionada);
+        var respostaCorreta = perguntas[indicePergunta].resposta;
+
+        // Desabilitar todos os botões após a seleção
+        var botoes = document.getElementsByClassName("opcoes");
+
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+        }
+
+        // Ir para a próxima pergunta após um pequeno atraso
+        setTimeout(function() {
+            indicePergunta++;
+            // Habilitar os botões para a próxima pergunta
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].disabled = false;
+            }
+
+            if (indicePergunta < perguntas.length) {
+                exibirPergunta();
+            } else {
+            // Fim do quiz
+                alert("Fim do quiz!");
+            }
+        },1000); // Aguarda 1 segundo antes de passar para a próxima pergunta
+    }
+    
+        exibirPergunta();
+      </script>
 </body>
 </html>

@@ -59,89 +59,58 @@
 
     <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
 
-    <script src="js/game.js">
-        const questions = [
-        {
-            question: "Qual é o país europeu conhecido por suas famosas gôndolas?",
-            answer: "Itália",
-            options: [
-            "França",
-            "Espanha",
-            "Itália",
-            "Grécia"
-            ]
-        },
-        {
-            question: "Qual é a capital da Austria?",
-            answer: "Viena",
-            options: [
-            "Munique",
-            "Berlim",
-            "Frankfurt",
-            "Viena"
-            ]
-        },
-        {
-            question: "Qual é o nome da moeda utilizada na maioria dos países da União Europeia?",
-            answer: "Euro",
-            options: [
-            "Dólar Europeu",
-            "Euro",
-            "Franco",
-            "Libra"
-            ]
-        },
-        {
-            question: "Qual é o nome da cordilheira que se estende por vários países da Europa, incluindo França, Suíça e Itália?",
-            answer: "Montanhas dos Alpes",
-            options: [
-            "Montanhas dos Alpes",
-            "Montanhas dos Apeninos",
-            "Montanhas dos Cárpatos",
-            "Montanhas dos Pirineus"
-            ]
-        },
-        {
-            question: "Qual é o país europeu famoso por sua produção de chocolates, waffles e cervejas?",
-            answer: "Bélgica",
-            options: [
-            "Bélgica",
-            "Alemanha",
-            "Suíça",
-            "Áustria"
-            ]
-        },
-        {
-            question: "Qual é o país europeu famoso por seus castelos, sendo um dos principais o Castelo de Bran?",
-            answer: "Romênia",
-            options: [
-            "Hungria",
-            "Bulgária",
-            "Romênia",
-            "Eslovênia"
-            ]
-        },
-        {
-            question: "Qual é o nome do famoso museu em Paris, que abriga a Mona Lisa de Leonardo da Vinci?",
-            answer: "Museu do Louvre",
-            options: [
-            "Museu Guggenheim",
-            "Museu do Louvre",
-            "Museu Reina Sofía",
-            "Tate Modern"
-            ]
-        },
-        {
-            question: "Qual o país conhecido por seus enormes campos de flores?",
-            answer: "Holanda",
-            options: [
-            "Suíça",
-            "Luxemburgo",
-            "Itália",
-            "Holanda"
-            ]
-        },
-        ];
-    </script>
+    <script>
+        var indicePergunta = 0;
+        var perguntas = perguntasEuropa;
+    
+        function exibirPergunta() {
+        var perguntaAtual = perguntas[indicePergunta];
+      
+
+      // Exibir a pergunta
+      var perguntaElemento = document.getElementById("pergunta");
+      perguntaElemento.textContent = perguntaAtual.pergunta;
+
+      // Exibir as opções de resposta
+      var opcoesElementos = document.getElementsByClassName("opcoes");
+
+      for (var i = 0; i < perguntaAtual.opcoes.length; i++) {
+        var opcaoElemento = opcoesElementos[i];
+        opcaoElemento.textContent = perguntaAtual.opcoes[i];
+        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+      }
+    }
+
+    function verificarResposta() {
+        var opcaoSelecionada = this.textContent;
+        var respostaSelecionada = perguntas[indicePergunta].opcoes.indexOf(opcaoSelecionada);
+        var respostaCorreta = perguntas[indicePergunta].resposta;
+
+        // Desabilitar todos os botões após a seleção
+        var botoes = document.getElementsByClassName("opcoes");
+
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+        }
+
+        // Ir para a próxima pergunta após um pequeno atraso
+        setTimeout(function() {
+            indicePergunta++;
+            // Habilitar os botões para a próxima pergunta
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].disabled = false;
+            }
+
+            if (indicePergunta < perguntas.length) {
+                exibirPergunta();
+            } else {
+            // Fim do quiz
+                alert("Fim do quiz!");
+            }
+        },1000); // Aguarda 1 segundo antes de passar para a próxima pergunta
+    }
+    
+        exibirPergunta();
+      </script>
 </body>
 </html>

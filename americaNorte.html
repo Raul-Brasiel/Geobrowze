@@ -59,89 +59,58 @@
 
     <footer>Desenvolvido por Raul Brasiel &copy;2023</footer>
 
-    <script src="js/game.js">
-        const questions = [
-        {
-            question: "Quais são os países da América do Norte?",
-            answer: "Canadá, EUA, México e Groenlândia",
-            options: [
-            "Canadá e EUA",
-            "Canadá, EUA e Groenlândia",
-            "Canadá, EUA e México",
-            "Canadá, EUA, México e Groenlândia"
-            ]
-        },
-        {
-            question: "Qual é o maior país da América do Norte em área territorial?",
-            answer: "Canadá",
-            options: [
-            "Estados Unidos",
-            "México",
-            "Canadá",
-            "Cuba"
-            ]
-        },
-        {
-            question: "Qual é a capital dos Estados Unidos?",
-            answer: "Washington",
-            options: [
-            "Washington",
-            "Nova York",
-            "Los Angeles",
-            "Chicago"
-            ]
-        },
-        {
-            question: "Qual a capital do Canadá?",
-            answer: "Ottawa",
-            options: [
-            "Toronto",
-            "Ottawa",
-            "Vancouver",
-            "Quebec"
-            ]
-        },
-        {
-            question: "Qual é o maior deserto da América do Norte?",
-            answer: "Deserto de Chihuahua",
-            options: [
-            "Deserto de Mojave",
-            "Deserto de Sonora",
-            "Deserto de Chihuahua",
-            "Deserto do Atacama"
-            ]
-        },
-        {
-            question: "Qual o atual bloco de livre comércio entre Canadá, México e EUA?",
-            answer: "USMCA",
-            options: [
-            "ALCA",
-            "USMCA",
-            "NAFTA",
-            "BRICS"
-            ]
-        },
-        {
-            question: "Quais as línguas faladas no Canadá?",
-            answer: "Inglês e Francês",
-            options: [
-            "Inglês e italiano",
-            "Francês e alemão",
-            "Inglês e Francês",
-            "Inglês e dinamarquês"
-            ]
-        },
-        {
-            question: "Em qual país está cituada a ilha do Príncipe Edward?",
-            answer: "Canadá",
-            options: [
-            "Canadá",
-            "Estados Unidos",
-            "Groenlândia",
-            "México"
-            ]
-        },
-        ];
+    <script>
+        var indicePergunta = 0;
+        var perguntas = perguntasAmericaNorte;
+    
+        function exibirPergunta() {
+      var perguntaAtual = perguntas[indicePergunta];
+      
+
+      // Exibir a pergunta
+      var perguntaElemento = document.getElementById("pergunta");
+      perguntaElemento.textContent = perguntaAtual.pergunta;
+
+      // Exibir as opções de resposta
+      var opcoesElementos = document.getElementsByClassName("opcoes");
+
+      for (var i = 0; i < perguntaAtual.opcoes.length; i++) {
+        var opcaoElemento = opcoesElementos[i];
+        opcaoElemento.textContent = perguntaAtual.opcoes[i];
+        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+      }
+    }
+
+    function verificarResposta() {
+        var opcaoSelecionada = this.textContent;
+        var respostaSelecionada = perguntas[indicePergunta].opcoes.indexOf(opcaoSelecionada);
+        var respostaCorreta = perguntas[indicePergunta].resposta;
+
+        // Desabilitar todos os botões após a seleção
+        var botoes = document.getElementsByClassName("opcoes");
+
+        for (var i = 0; i < botoes.length; i++) {
+            botoes[i].disabled = true;
+        }
+
+        // Ir para a próxima pergunta após um pequeno atraso
+        setTimeout(function() {
+            indicePergunta++;
+            // Habilitar os botões para a próxima pergunta
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].disabled = false;
+            }
+
+            if (indicePergunta < perguntas.length) {
+                exibirPergunta();
+            } else {
+            // Fim do quiz
+                alert("Fim do quiz!");
+            }
+        },1000); // Aguarda 1 segundo antes de passar para a próxima pergunta
+    }
+    
+        exibirPergunta();
     </script>
 </body>
 </html>

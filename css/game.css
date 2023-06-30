@@ -62,11 +62,9 @@
 #personagem{
 	padding: 180px 0 0 30px;
 }
-
-.opcao-certa {
+.opcao-correta{
 	background-color: green;
-  }
-
-.opcao-errada {
+}
+.opcao-correta{
 	background-color: red;
 }
