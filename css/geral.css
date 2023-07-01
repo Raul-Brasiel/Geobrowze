@@ -51,31 +51,6 @@ body{
 .botao-home div:hover{
 	transform: scale(1.1);
 }
-#div-audio{
-	padding-left: 73%;
-	padding-top: 4px;
-	background-color: none;
-}
-#div-audio button{
-	height: 45px;
-	width: 45px;
-	background-color: #143157;
-  	clip-path: polygon(0% 75%, 0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%);
-	cursor: pointer;
-	border: none;
-}
-#div-audio button:hover{
-	transform: scale(1.1);
-}
-
-#div-audio i{
-	background-color: none;
-	font-size: 25px;
-	color: rgb(224, 223, 223);
-}
-#div-audio i:hover{
-	color: white;
-}
 
 a{
 	text-decoration: none;

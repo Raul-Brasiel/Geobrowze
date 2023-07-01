@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault(); // Impede o comportamento padrão do link
     
     const destinoX = event.clientX;
-    const destinoY = event.clientY;
+    const destinoY = event.clientY-80;
   
   barco.style.left = `${destinoX}px`;
   barco.style.top = `${destinoY}px`;

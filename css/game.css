@@ -41,6 +41,13 @@
 	height: 350px;
 	margin-left: 70px;
 }
+#telaFinal{
+	background-color: antiquewhite;
+	width: 450px;
+	height: 350px;
+	margin-left: 70px;
+	display: none;
+}
 
 #quiz button {
 	width: 80%;
@@ -52,6 +59,19 @@
 	cursor: pointer;
 }
 #quiz button:hover{
+	background-color: #88fcfe;
+}
+#telaFinal button{
+	width: 80%;
+	padding: 10px;
+	margin-top: 15px;
+	background-color: #45f0f3;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 50px;
+}
+#telaFinal button:hover{
 	background-color: #88fcfe;
 }
 

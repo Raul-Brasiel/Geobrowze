@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/game.css">
     <link rel="icon" href="imagens/Geobrowze.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="js/game.js"></script>
+    <script src="js/perguntas.js"></script>
 </head>
 
 <body>
@@ -19,16 +19,6 @@
                         <h1 id="geobrowze1-menu" >GEO</h1><h1 id="geobrowze2-menu">BROWZE</h1>
                     </div>
                 </a>
-            </div>
-           
-            <div id="div-audio">
-                <button>  <!-- Diminuir ou aumentar volume dos sons -->
-                    <i class="fa-solid fa-volume-high"></i>
-                </button>
-
-                <button> <!-- Diminuir ou aumentar volume da música -->
-                    <i class="fa-solid fa-music"></i>
-                </button>
             </div>
         </div>
 
@@ -50,6 +40,12 @@
                 <button class="opcoes" onclick="verificarResposta()"></button>
                 <button class="opcoes" onclick="verificarResposta()"></button>
             </div>
+
+            <div id="telaFinal">
+                <button class="buttonFinal" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+                <button class="buttonFinal" onclick="voltarAoInicio()">Voltar ao Início</button>
+                <button class="buttonFinal" onclick="voltarParaMapa()">Voltar para o Mapa</button>
+            </div>
     
             <div id="personagem">
                 <img src="imagens/personagem.png" alt="" width="200px" height="200px">
@@ -62,13 +58,13 @@
     <script>
         var indicePergunta = 0;
         var perguntas = perguntasAmericaSul;
+        var pontos = 0;
     
         function exibirPergunta() {
         var perguntaAtual = perguntas[indicePergunta];
-      
 
-      // Exibir a pergunta
-      var perguntaElemento = document.getElementById("pergunta");
+        // Exibir a pergunta
+        var perguntaElemento = document.getElementById("pergunta");
       perguntaElemento.textContent = perguntaAtual.pergunta;
 
       // Exibir as opções de resposta
@@ -77,8 +73,30 @@
       for (var i = 0; i < perguntaAtual.opcoes.length; i++) {
         var opcaoElemento = opcoesElementos[i];
         opcaoElemento.textContent = perguntaAtual.opcoes[i];
-        opcaoElemento.classList.remove("opcao-certa", "opcao-errada");
+        opcaoElemento.classList.remove("opcao-certa");
       }
+    }
+
+    function exibirTelaFinal() {
+            // Ocultar os elementos existentes na página
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("telaFinal").style.display = "inline";
+            var pontosElemento = document.getElementsByClassName("pontuacao");
+            pontosElemento.textContent = pontos;
+    }
+    function reiniciarQuiz() {
+      // Redirecionar para a página do quiz (substitua "quiz.html" pelo nome da página do quiz)
+      window.location.href = "americaSul.html";
+    }
+    
+    // Função para voltar ao início (página inicial) do quiz
+    function voltarAoInicio() {
+      // Redirecionar para a página inicial do quiz (substitua "index.html" pelo nome da página inicial)
+      window.location.href = "index.html";
+    }
+    function voltarParaMapa() {
+        // Redirecionar para a página do mapa (substitua "mapa.html" pelo nome da página do mapa)
+        window.location.href = "mapa.html";
     }
 
     function verificarResposta() {
@@ -88,9 +106,22 @@
 
         // Desabilitar todos os botões após a seleção
         var botoes = document.getElementsByClassName("opcoes");
-
         for (var i = 0; i < botoes.length; i++) {
             botoes[i].disabled = true;
+
+            if (i === respostaSelecionada) {
+                if (respostaSelecionada === respostaCorreta) {
+                // Resposta selecionada e correta
+                    botoes[i].style.backgroundColor = "#59f345";
+                    pontos++;
+                } else {
+                    // Resposta selecionada e incorreta
+                    botoes[i].style.backgroundColor = "red";
+                }
+            } else if (i === respostaCorreta) {
+                // Resposta correta (não selecionada)
+                botoes[i].style.backgroundColor = "#59f345";
+            }
         }
 
         // Ir para a próxima pergunta após um pequeno atraso
@@ -99,18 +130,19 @@
             // Habilitar os botões para a próxima pergunta
             for (var i = 0; i < botoes.length; i++) {
                 botoes[i].disabled = false;
+                botoes[i].style.backgroundColor = "";
             }
 
             if (indicePergunta < perguntas.length) {
                 exibirPergunta();
             } else {
             // Fim do quiz
-                alert("Fim do quiz!");
+                exibirTelaFinal();
             }
         },1000); // Aguarda 1 segundo antes de passar para a próxima pergunta
     }
-    
-        exibirPergunta();
-    </script>
+
+    exibirPergunta();
+  </script>
 </body>
 </html>

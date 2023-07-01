@@ -11,8 +11,8 @@
 	width: 100px;
 	height: 100px;
 	position: sticky;
-	top: 50px;
-	left: 500px;
+	top: 240px;
+	left: 330px;
 	transition: top 5s, left 5s;
 }
 
